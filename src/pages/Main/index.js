@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
-
-import { View, Text } from 'react-native';
+import { FlatList } from 'react-native';
+import api from '../../services/api';
 
 import { Container } from './styles';
 
 export default class Main extends Component {
+  state = {
+    products: [],
+  };
+
+  async componentDidMount() {
+    const response = await api.get('/products');
+    const data = response.data.map(product => ({
+      ...product,
+      priceFormatted: product.price,
+    }));
+    this.setState({ products: data });
+  }
+
   render() {
-    return (
-      <Container>
-        <Text>MAIN PAGE</Text>
-      </Container>
-    );
+    const { products } = this.state;
+    return <Container />;
   }
 }
