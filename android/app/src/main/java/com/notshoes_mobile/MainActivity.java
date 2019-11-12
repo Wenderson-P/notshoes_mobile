@@ -3,6 +3,9 @@ package com.notshoes_mobile;
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
+ import com.facebook.react.ReactActivityDelegate;
+ import com.facebook.react.ReactRootView;
+ import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule
@@ -11,5 +14,15 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "notshoes_mobile";
+  }
+
+  @Override
+  protected ReactActivityDelegate createReactActivityDelegate() {
+    return new ReactActivityDelegate(this, getMainComponentName()) {
+      @Override
+      protected ReactRootView createRootView() {
+      return new RNGestureHandlerEnabledRootView(MainActivity.this);
+      }
+    };
   }
 }
