@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import api from '../../services/api';
-
 import {
   Container,
   Product,
@@ -40,7 +40,7 @@ export default class Main extends Component {
               <ProductTitle>{item.title}</ProductTitle>
               <ProductPrice>{item.price}</ProductPrice>
               <AddButton>
-                <AddButonText>Adicionar ao carrinho</AddButonText>
+                <AddButonText>Adicionar</AddButonText>
               </AddButton>
             </Product>
           )}
