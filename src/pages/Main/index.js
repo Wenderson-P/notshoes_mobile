@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import api from '../../services/api';
 
-import { Container } from './styles';
+import { Container, Product, ProductImage } from './styles';
 
 export default class Main extends Component {
   state = {
@@ -20,6 +20,18 @@ export default class Main extends Component {
 
   render() {
     const { products } = this.state;
-    return <Container />;
+    return (
+      <Container>
+        <FlatList
+          data={products}
+          keyExtractor={product => String(product.id)}
+          renderItem={({ item }) => (
+            <Product>
+              <ProductImage source={{ uri: item.image }} />
+            </Product>
+          )}
+        />
+      </Container>
+    );
   }
 }
