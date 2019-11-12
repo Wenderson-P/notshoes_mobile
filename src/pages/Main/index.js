@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import api from '../../services/api';
 
-import { Container, Product, ProductImage } from './styles';
+import {
+  Container,
+  Product,
+  ProductImage,
+  ProductTitle,
+  ProductPrice,
+  AddButton,
+  AddButonText,
+} from './styles';
 
 export default class Main extends Component {
   state = {
@@ -23,11 +31,17 @@ export default class Main extends Component {
     return (
       <Container>
         <FlatList
+          horizontal
           data={products}
           keyExtractor={product => String(product.id)}
           renderItem={({ item }) => (
             <Product>
               <ProductImage source={{ uri: item.image }} />
+              <ProductTitle>{item.title}</ProductTitle>
+              <ProductPrice>{item.price}</ProductPrice>
+              <AddButton>
+                <AddButonText>Adicionar ao carrinho</AddButonText>
+              </AddButton>
             </Product>
           )}
         />
