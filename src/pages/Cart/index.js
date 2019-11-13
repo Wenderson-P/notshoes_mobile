@@ -4,6 +4,7 @@ import colors from '../../styles/colors';
 import {
   Container,
   ProductContainer,
+  ProductInfo,
   ProductImage,
   ProductDetails,
   ProductTitle,
@@ -19,14 +20,16 @@ export default function Cart() {
   return (
     <Container>
       <ProductContainer>
-        <ProductImage />
-        <ProductDetails>
-          <ProductTitle>Tênis</ProductTitle>
-          <ProductPrice>R$ 159,00</ProductPrice>
-        </ProductDetails>
-        <RemoveButton>
-          <Icon name="delete-forever" size={24} color={colors.primary} />
-        </RemoveButton>
+        <ProductInfo>
+          <ProductImage />
+          <ProductDetails>
+            <ProductTitle>Tênis</ProductTitle>
+            <ProductPrice>R$ 159,00</ProductPrice>
+          </ProductDetails>
+          <RemoveButton>
+            <Icon name="delete-forever" size={24} color={colors.primary} />
+          </RemoveButton>
+        </ProductInfo>
         <ProductControls>
           <ProductControlsButton>
             <Icon
