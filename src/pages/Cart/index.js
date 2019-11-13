@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
+import colors from '../../styles/colors';
 import {
   Container,
   ProductContainer,
@@ -23,17 +23,21 @@ export default function Cart() {
         <ProductDetails>
           <ProductTitle>Tênis</ProductTitle>
           <ProductPrice>R$ 159,00</ProductPrice>
-          <RemoveButton>
-            <Icon />
-          </RemoveButton>
         </ProductDetails>
+        <RemoveButton>
+          <Icon name="delete-forever" size={24} color={colors.primary} />
+        </RemoveButton>
         <ProductControls>
           <ProductControlsButton>
-            <Icon />
+            <Icon
+              name="remove-circle-outline"
+              size={20}
+              color={colors.primary}
+            />
           </ProductControlsButton>
           <ProductAmount>2</ProductAmount>
           <ProductControlsButton>
-            <Icon />
+            <Icon name="add-circle-outline" size={20} color={colors.primary} />
           </ProductControlsButton>
           <ProductTotal>R$ 318,00</ProductTotal>
         </ProductControls>
