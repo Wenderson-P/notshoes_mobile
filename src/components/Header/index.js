@@ -9,7 +9,7 @@ import {
   ItemAmount,
 } from './styles';
 
-function Header({ navigation }) {
+function Header({ navigation, cartSize }) {
   return (
     <Container>
       <LogoButton onPress={() => navigation.navigate('Main')}>
@@ -17,7 +17,7 @@ function Header({ navigation }) {
       </LogoButton>
       <BasketButton onPress={() => navigation.navigate('Cart')}>
         <Icon name="shopping-basket" color="#FFF" size={24} />
-        <ItemAmount>2</ItemAmount>
+        <ItemAmount>{cartSize}</ItemAmount>
       </BasketButton>
     </Container>
   );
