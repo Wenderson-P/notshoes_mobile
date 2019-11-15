@@ -1,7 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import * as CartActions from '../../store/modules/cart/action';
+
 import colors from '../../styles/colors';
+
 import { formatPrice } from '../../util/format';
 import {
   Container,
@@ -18,7 +22,14 @@ import {
   ProductTotal,
 } from './styles';
 
-function Cart({ navigation, products }) {
+function Cart({ navigation, products, updateAmountRequest }) {
+  function decrement(product) {
+    updateAmountRequest(product.id, product.amount - 1);
+  }
+  function increment(product) {
+    updateAmountRequest(product.id, product.amount + 1);
+  }
+
   return (
     <Container>
       <ProductContainer>
@@ -35,7 +46,7 @@ function Cart({ navigation, products }) {
               </RemoveButton>
             </ProductInfo>
             <ProductControls>
-              <ProductControlsButton>
+              <ProductControlsButton onPress={() => decrement(product)}>
                 <Icon
                   name="remove-circle-outline"
                   size={20}
@@ -43,7 +54,7 @@ function Cart({ navigation, products }) {
                 />
               </ProductControlsButton>
               <ProductAmount value={String(product.amount)} />
-              <ProductControlsButton>
+              <ProductControlsButton onPress={() => increment(product)}>
                 <Icon
                   name="add-circle-outline"
                   size={20}
@@ -72,4 +83,7 @@ const mapStateToProps = state => ({
   ),
 });
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
