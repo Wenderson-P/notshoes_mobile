@@ -39,7 +39,7 @@ export const ProductControls = styled.View`
 `;
 export const ProductControlsButton = styled.TouchableOpacity``;
 
-export const ProductAmount = styled.Text`
+export const ProductAmount = styled.TextInput`
   background: #fff;
   padding: 5px;
   margin: 5px;
