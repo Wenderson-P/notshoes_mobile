@@ -22,5 +22,7 @@ function Header({ navigation }) {
     </Container>
   );
 }
-
-export default connect()(Header);
+const mapStateToProps = state => ({
+  cartSize: state.cart.length,
+});
+export default connect(mapStateToProps)(Header);
