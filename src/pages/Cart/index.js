@@ -53,7 +53,7 @@ function Cart({ navigation, products, updateAmountRequest }) {
                   color={colors.primary}
                 />
               </ProductControlsButton>
-              <ProductAmount value={String(product.amount)} />
+              <ProductAmount readonly value={String(product.amount)} />
               <ProductControlsButton onPress={() => increment(product)}>
                 <Icon
                   name="add-circle-outline"
