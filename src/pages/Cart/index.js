@@ -28,7 +28,13 @@ import {
   FinishOrderText,
 } from './styles';
 
-function Cart({ navigation, products, total, updateAmountRequest }) {
+function Cart({
+  navigation,
+  products,
+  total,
+  updateAmountRequest,
+  removeFromCart,
+}) {
   function decrement(product) {
     updateAmountRequest(product.id, product.amount - 1);
   }
@@ -48,7 +54,12 @@ function Cart({ navigation, products, total, updateAmountRequest }) {
                 <ProductPrice>{product.priceFormatted}</ProductPrice>
               </ProductDetails>
               <RemoveButton>
-                <Icon name="delete-forever" size={24} color={colors.primary} />
+                <Icon
+                  name="delete-forever"
+                  size={24}
+                  color={colors.primary}
+                  onPress={() => removeFromCart(product.id)}
+                />
               </RemoveButton>
             </ProductInfo>
             <ProductControls>
