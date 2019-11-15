@@ -18,6 +18,7 @@ function* addToCart({ id }) {
 
   if (amount > stockAmount) {
     Alert.alert('Não temos a quantidade selecionada em estoque.');
+    return;
   }
 
   if (productExists) {
@@ -41,6 +42,7 @@ function* updateAmount({ id, amount }) {
   const stockAmount = stockResponse.data.amount;
   if (amount > stockAmount) {
     Alert.alert('Não temos a quantidade selecionada em estoque.');
+    return;
   }
 
   yield put(updateAmountSuccess(id, amount));
