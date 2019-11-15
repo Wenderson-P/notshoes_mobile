@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   Container,
@@ -8,7 +9,7 @@ import {
   ItemAmount,
 } from './styles';
 
-export default function components({ navigation }) {
+function Header({ navigation }) {
   return (
     <Container>
       <LogoButton onPress={() => navigation.navigate('Main')}>
@@ -21,3 +22,5 @@ export default function components({ navigation }) {
     </Container>
   );
 }
+
+export default connect()(Header);
