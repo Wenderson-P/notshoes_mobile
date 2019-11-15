@@ -1,4 +1,5 @@
 import { select, all, call, put, takeLatest } from 'redux-saga/effects';
+import { Alert } from 'react-native';
 import { addToCartSucess, updateAmountSucess } from './action';
 import { formatPrice } from '../../../util/format';
 
@@ -11,6 +12,13 @@ function* addToCart({ id }) {
 
   const currentAmount = productExists ? productExists.amount : 0;
   const amount = currentAmount + 1;
+
+  const stockResponse = yield call(api.get, `/stock/${id}`);
+  const stockAmount = stockResponse.data.amount;
+
+  if (amount > stockAmount) {
+    Alert.alert('Não temos a quantidade selecionada em estoque.');
+  }
 
   if (productExists) {
     yield put(updateAmountSucess(id, amount));
