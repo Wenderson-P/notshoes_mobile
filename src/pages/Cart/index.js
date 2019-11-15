@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../styles/colors';
-import formatPrice from '../../util/format';
+import { formatPrice } from '../../util/format';
 import {
   Container,
   ProductContainer,
@@ -22,30 +22,38 @@ function Cart({ navigation, products }) {
   return (
     <Container>
       <ProductContainer>
-        <ProductInfo>
-          <ProductImage />
-          <ProductDetails>
-            <ProductTitle>Tênis</ProductTitle>
-            <ProductPrice>R$ 159,00</ProductPrice>
-          </ProductDetails>
-          <RemoveButton>
-            <Icon name="delete-forever" size={24} color={colors.primary} />
-          </RemoveButton>
-        </ProductInfo>
-        <ProductControls>
-          <ProductControlsButton>
-            <Icon
-              name="remove-circle-outline"
-              size={20}
-              color={colors.primary}
-            />
-          </ProductControlsButton>
-          <ProductAmount>2</ProductAmount>
-          <ProductControlsButton>
-            <Icon name="add-circle-outline" size={20} color={colors.primary} />
-          </ProductControlsButton>
-          <ProductTotal>R$ 318,00</ProductTotal>
-        </ProductControls>
+        {products.map(product => (
+          <>
+            <ProductInfo>
+              <ProductImage source={{ uri: product.image }} />
+              <ProductDetails>
+                <ProductTitle>{product.title}</ProductTitle>
+                <ProductPrice>{product.priceFormatted}</ProductPrice>
+              </ProductDetails>
+              <RemoveButton>
+                <Icon name="delete-forever" size={24} color={colors.primary} />
+              </RemoveButton>
+            </ProductInfo>
+            <ProductControls>
+              <ProductControlsButton>
+                <Icon
+                  name="remove-circle-outline"
+                  size={20}
+                  color={colors.primary}
+                />
+              </ProductControlsButton>
+              <ProductAmount value={String(product.amount)} />
+              <ProductControlsButton>
+                <Icon
+                  name="add-circle-outline"
+                  size={20}
+                  color={colors.primary}
+                />
+              </ProductControlsButton>
+              <ProductTotal>{product.subTotal}</ProductTotal>
+            </ProductControls>
+          </>
+        ))}
       </ProductContainer>
     </Container>
   );
