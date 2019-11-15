@@ -61,3 +61,30 @@ export const ProductTotal = styled.Text`
   flex: 1;
   text-align: right;
 `;
+
+export const TotalContainer = styled.View`
+  align-items: center;
+`;
+
+export const TotalText = styled.Text`
+  color: ${colors.grayColor};
+  font-size: 18px;
+  font-weight: 600;
+`;
+export const TotalAmount = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+`;
+export const FinishOrder = styled.TouchableOpacity`
+  align-items: center;
+  background-color: ${colors.primary};
+  width: 90%;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px 0px 10px 0px;
+`;
+export const FinishOrderText = styled.Text`
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+`;

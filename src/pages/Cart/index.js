@@ -21,9 +21,14 @@ import {
   ProductControlsButton,
   ProductAmount,
   ProductTotal,
+  TotalContainer,
+  TotalText,
+  TotalAmount,
+  FinishOrder,
+  FinishOrderText,
 } from './styles';
 
-function Cart({ navigation, products, updateAmountRequest }) {
+function Cart({ navigation, products, total, updateAmountRequest }) {
   function decrement(product) {
     updateAmountRequest(product.id, product.amount - 1);
   }
@@ -67,6 +72,13 @@ function Cart({ navigation, products, updateAmountRequest }) {
           </Products>
         ))}
       </ProductContainer>
+      <TotalContainer>
+        <TotalText>Total</TotalText>
+        <TotalAmount>{total}</TotalAmount>
+        <FinishOrder>
+          <FinishOrderText>Finalizar Pedido</FinishOrderText>
+        </FinishOrder>
+      </TotalContainer>
     </Container>
   );
 }
