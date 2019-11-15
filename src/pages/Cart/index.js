@@ -26,6 +26,9 @@ import {
   TotalAmount,
   FinishOrder,
   FinishOrderText,
+  EmptyStateContainer,
+  EmptyStateText,
+  EmptyStateSubText
 } from './styles';
 
 function Cart({
@@ -44,52 +47,62 @@ function Cart({
 
   return (
     <Container>
-      <ProductContainer>
-        {products.map(product => (
-          <Products key={product.id}>
-            <ProductInfo>
-              <ProductImage source={{ uri: product.image }} />
-              <ProductDetails>
-                <ProductTitle>{product.title}</ProductTitle>
-                <ProductPrice>{product.priceFormatted}</ProductPrice>
-              </ProductDetails>
-              <RemoveButton>
-                <Icon
-                  name="delete-forever"
-                  size={24}
-                  color={colors.primary}
-                  onPress={() => removeFromCart(product.id)}
-                />
-              </RemoveButton>
-            </ProductInfo>
-            <ProductControls>
-              <ProductControlsButton onPress={() => decrement(product)}>
-                <Icon
-                  name="remove-circle-outline"
-                  size={20}
-                  color={colors.primary}
-                />
-              </ProductControlsButton>
-              <ProductAmount readonly value={String(product.amount)} />
-              <ProductControlsButton onPress={() => increment(product)}>
-                <Icon
-                  name="add-circle-outline"
-                  size={20}
-                  color={colors.primary}
-                />
-              </ProductControlsButton>
-              <ProductTotal>{product.subTotal}</ProductTotal>
-            </ProductControls>
-          </Products>
-        ))}
-        <TotalContainer>
-          <TotalText>Total</TotalText>
-          <TotalAmount>{total}</TotalAmount>
-          <FinishOrder>
-            <FinishOrderText>Finalizar Pedido</FinishOrderText>
-          </FinishOrder>
-        </TotalContainer>
-      </ProductContainer>
+      {products.length ? (
+        <>
+          <ProductContainer>
+            {products.map(product => (
+              <Products key={product.id}>
+                <ProductInfo>
+                  <ProductImage source={{ uri: product.image }} />
+                  <ProductDetails>
+                    <ProductTitle>{product.title}</ProductTitle>
+                    <ProductPrice>{product.priceFormatted}</ProductPrice>
+                  </ProductDetails>
+                  <RemoveButton>
+                    <Icon
+                      name="delete-forever"
+                      size={24}
+                      color={colors.primary}
+                      onPress={() => removeFromCart(product.id)}
+                    />
+                  </RemoveButton>
+                </ProductInfo>
+                <ProductControls>
+                  <ProductControlsButton onPress={() => decrement(product)}>
+                    <Icon
+                      name="remove-circle-outline"
+                      size={20}
+                      color={colors.primary}
+                    />
+                  </ProductControlsButton>
+                  <ProductAmount readonly value={String(product.amount)} />
+                  <ProductControlsButton onPress={() => increment(product)}>
+                    <Icon
+                      name="add-circle-outline"
+                      size={20}
+                      color={colors.primary}
+                    />
+                  </ProductControlsButton>
+                  <ProductTotal>{product.subTotal}</ProductTotal>
+                </ProductControls>
+              </Products>
+            ))}
+            <TotalContainer>
+              <TotalText>Total</TotalText>
+              <TotalAmount>{total}</TotalAmount>
+              <FinishOrder>
+                <FinishOrderText>Finalizar Pedido</FinishOrderText>
+              </FinishOrder>
+            </TotalContainer>
+          </ProductContainer>
+        </>
+      ) : (
+          <EmptyStateContainer>
+            <Icon name="remove-shopping-cart" size={64} color="#aaa" />
+            <EmptyStateText>Seu carrinho está vazio</EmptyStateText>
+            <EmptyStateSubText>Navegue na nossa loja e selecione alguns produtos :)</EmptyStateSubText>
+          </EmptyStateContainer>
+        )}
     </Container>
   );
 }

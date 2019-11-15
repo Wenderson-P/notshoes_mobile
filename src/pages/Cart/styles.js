@@ -90,3 +90,22 @@ export const FinishOrderText = styled.Text`
   font-weight: bold;
   text-transform: uppercase;
 `;
+
+export const EmptyStateContainer = styled.View`
+  margin: 15px;
+  align-items: center;
+  justify-content: center;
+`;
+export const EmptyStateText = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 18px;
+`;
+
+export const EmptyStateSubText = styled.Text`
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 18px;
+  text-align: center;
+  color:${colors.grayColor}
+`;
