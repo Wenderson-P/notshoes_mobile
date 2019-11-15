@@ -15,13 +15,18 @@ export const Products = styled.View``;
 
 export const ProductInfo = styled.View`
   flex-direction: row;
+  align-items: center;
 `;
 
 export const ProductImage = styled.Image`
   width: 80px;
   height: 80px;
 `;
-export const ProductDetails = styled.View``;
+export const ProductDetails = styled.View`
+  flex: 1;
+  margin-left: 10px;
+  padding: 10px;
+`;
 
 export const ProductTitle = styled.Text``;
 
