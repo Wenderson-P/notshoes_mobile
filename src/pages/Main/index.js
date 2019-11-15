@@ -40,6 +40,7 @@ class Main extends Component {
 
   render() {
     const { products } = this.state;
+    const { amount } = this.props;
     return (
       <Container>
         <FlatList
@@ -54,7 +55,7 @@ class Main extends Component {
               <AddButton onPress={() => this.handleAddProduct(item.id)}>
                 <ProductAmount>
                   <Icon name="add-shopping-cart" color="#FFF" size={20} />
-                  <ProductAmountText>1</ProductAmountText>
+                  <ProductAmountText>{amount[item.id] || 0}</ProductAmountText>
                 </ProductAmount>
                 <AddButonText>Adicionar</AddButonText>
               </AddButton>
@@ -66,4 +67,11 @@ class Main extends Component {
   }
 }
 
-export default connect()(Main);
+const mapStateToProps = state => ({
+  amount: state.cart.reduce((amount, product) => {
+    amount[product.id] = product.amount;
+    return amount;
+  }, {}),
+});
+
+export default connect(mapStateToProps)(Main);
