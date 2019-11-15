@@ -11,6 +11,8 @@ export const ProductContainer = styled.View`
   padding: 20px;
 `;
 
+export const Products = styled.View``;
+
 export const ProductInfo = styled.View`
   flex-direction: row;
 `;

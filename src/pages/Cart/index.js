@@ -10,6 +10,7 @@ import { formatPrice } from '../../util/format';
 import {
   Container,
   ProductContainer,
+  Products,
   ProductInfo,
   ProductImage,
   ProductDetails,
@@ -34,7 +35,7 @@ function Cart({ navigation, products, updateAmountRequest }) {
     <Container>
       <ProductContainer>
         {products.map(product => (
-          <>
+          <Products key={product.id}>
             <ProductInfo>
               <ProductImage source={{ uri: product.image }} />
               <ProductDetails>
@@ -63,7 +64,7 @@ function Cart({ navigation, products, updateAmountRequest }) {
               </ProductControlsButton>
               <ProductTotal>{product.subTotal}</ProductTotal>
             </ProductControls>
-          </>
+          </Products>
         ))}
       </ProductContainer>
     </Container>
