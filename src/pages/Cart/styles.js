@@ -7,11 +7,13 @@ export const Container = styled.View`
   border-radius: 5px;
 `;
 
-export const ProductContainer = styled.View`
+export const ProductContainer = styled.ScrollView.attrs({
+  bounces: true,
+})``;
+
+export const Products = styled.View`
   padding: 20px;
 `;
-
-export const Products = styled.View``;
 
 export const ProductInfo = styled.View`
   flex-direction: row;

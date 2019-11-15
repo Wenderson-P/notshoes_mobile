@@ -71,14 +71,14 @@ function Cart({ navigation, products, total, updateAmountRequest }) {
             </ProductControls>
           </Products>
         ))}
+        <TotalContainer>
+          <TotalText>Total</TotalText>
+          <TotalAmount>{total}</TotalAmount>
+          <FinishOrder>
+            <FinishOrderText>Finalizar Pedido</FinishOrderText>
+          </FinishOrder>
+        </TotalContainer>
       </ProductContainer>
-      <TotalContainer>
-        <TotalText>Total</TotalText>
-        <TotalAmount>{total}</TotalAmount>
-        <FinishOrder>
-          <FinishOrderText>Finalizar Pedido</FinishOrderText>
-        </FinishOrder>
-      </TotalContainer>
     </Container>
   );
 }
