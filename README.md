@@ -39,7 +39,7 @@ In this study project, I focused on 3 features.
 - [Syuled-Components] (https://github.com/styled-components/styled-components)
 - [Polished](https://github.com/styled-components/polished)
 - [Immer] (https://github.com/immerjs/immer)
-
+- [Json-Server](https://github.com/typicode/json-server)
 
 
 ### DEMO
@@ -54,11 +54,14 @@ After cloning the project you must run :
 `npm install
 react-native run-android`
 
-After the app is already installed you can run:
+After the app is already installed you must run:
 </br>
 `react-native start`
 
-
+## Json Server
+In this project i used a json server, that simulates a api rest with a json server.
+To start the json server, you must run:
+`json-server server.json -p 3333 -w'`
 
 ### Web Version
 
