@@ -7,7 +7,7 @@
 This is a Simplified e-commerce project made with react-native, which has the main page and the cart page, so you can choose products
 on this main page, and any addition or removal of the product will appear in cart.
 
-In this study project, I focused on 4 features.
+In this study project, I focused on 3 features.
 * React Hooks
 * Redux
 * [Migrate a React web app to mobile](https://github.com/Wenderson-P/notshoes)
