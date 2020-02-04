@@ -3,7 +3,7 @@ import colors from '../../styles/colors';
 import logo from '../../assets/images/logo.png';
 
 export const Container = styled.View`
-  background: ${colors.dark};
+  background: ${colors.primary};
   flex-direction: row;
   justify-content: space-between;
   padding: 20px;
