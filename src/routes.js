@@ -20,7 +20,7 @@ const Routes = createAppContainer(
         header: <Header {...navigation} />,
       }),
       cardStyle: {
-        backgroundColor: colors.dark,
+        backgroundColor: colors.white,
       },
     }
   )
