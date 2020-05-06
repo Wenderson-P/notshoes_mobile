@@ -12,6 +12,17 @@ In this study project, I focused on 3 features.
 * Redux
 * [Migrate a React web app to mobile](https://github.com/Wenderson-P/notshoes)
 
+### Future Layout
+⚠️**This layout is in progress**⚠️
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/52503774/81231109-fe3f1680-8fc8-11ea-9943-db734ab5f0f5.png" height="20%" width="70%" align="center"/>
+</p>
+
+
+### DEMO
+  <img src="https://user-images.githubusercontent.com/52503774/72623586-2cb6ba00-3924-11ea-8ee7-a60dedac1709.gif" height="20%" width="30%"/>
+  
 ### Made with 
 
 - [React Native](http://facebook.github.io/react-native/) 
@@ -36,16 +47,10 @@ In this study project, I focused on 3 features.
   - [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
   - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
 - [EditorConfig](https://editorconfig.org/)
-- [Syuled-Components] (https://github.com/styled-components/styled-components)
+- [Styled-Components](https://github.com/styled-components/styled-components)
 - [Polished](https://github.com/styled-components/polished)
-- [Immer] (https://github.com/immerjs/immer)
+- [Immer](https://github.com/immerjs/immer)
 - [Json-Server](https://github.com/typicode/json-server)
-
-
-### DEMO
-
-![notshoes_mobile](https://user-images.githubusercontent.com/52503774/72623586-2cb6ba00-3924-11ea-8ee7-a60dedac1709.gif)
-
 
 ## Get Started
 
